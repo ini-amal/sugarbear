@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugar Bear - Dessert Shop</title>
+    <style>
+        :root{
+            --strngPink: #ffa8b0;
+            --Pink: #ffc0c9;
+            --MedPink: #F8B0C8;
+            --softpink: #ffd9e6;
+            --softbrown: #AF7F73;
+            --coklat: #733D26; 
+            --othercoklat: #ad7a60;
+            /* b88e5e */
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FCFBF1; /* Warna background */
+            color: #0C3B2E;
+        }
+        header {
+            background-color: var(--Pink); /* Warna primer */
+            color: white;
+            padding: 5px;
+            display: flex;
+            justify-content: center; /* Logo di tengah */
+            align-items: center;
+            position: relative;
+        }
+        
+        nav {
+            position: absolute;
+            right: 20px;
+        }
+
+        nav a {
+            font-size: 1.3rem;
+            margin: 0 15px;
+            color: white;
+            text-decoration: none ;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover{
+            padding: 0 1rem;
+            background-color: var(--softpink);
+            color: white; /* Warna detail tambahan */
+            border-radius: 2rem;
+        }
+
+
+        .hero {
+            background-image: url('https://i.pinimg.com/originals/30/c2/3a/30c23ac21da4f7e8cf0208c386a6e3b6.jpg'); /* Tambahkan URL gambar */
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 5rem 20px;
+            height: 100vh; /* Mengatur tinggi section */
+            position: relative; /* Agar bisa menempatkan lapisan di atasnya */
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.3); /* Lapisan transparan di belakang teks */
+            z-index: 1; /* Membuat lapisan di bawah teks */
+        }
+
+        .hero h1, .hero p {
+            position: relative;
+            z-index: 2; /* Menempatkan teks di atas lapisan transparan */
+            color: white; /* Warna teks agar lebih kontras */
+        }  
+
+        .hero h1 {
+            padding: 5rem;
+            font-size: 3em;
+            color: white; /* Warna teks */
+        }
+        
+        .hero h1 span{
+            color: var(--strngPink);
+        }
+
+        .hero p {
+            padding: 0 0 2rem;
+            font-size: 1.5em;
+            color: whitesmoke; /* Warna teks kontras untuk deskripsi */
+        }
+
+        .hero .cta-button{
+            font-size: 1.3rem;
+
+        }
+
+        .cta-button {
+            background-color: var(--softpink); /* Warna detail */
+            color: var(--strngPink);
+            font-weight: bold;
+            padding: 10px 20px;
+            border: 2px solid var(--strngPink);
+            border-radius: 25px;
+            cursor: pointer;
+            position: relative; /* Memastikan tombol berada di atas lapisan lain */
+            z-index: 2; /* Z-index lebih tinggi dari lapisan transparan */
+            width: 15rem;
+            height: 3rem;
+            margin: 2rem 41.5%;
+        }
+        .cta-button:hover {
+            background-color: var(--strngPink); /* Warna hover detail */
+            color: var(--softpink); /* Warna teks saat hover */
+        }   
+
+       
+
+
+        /* Kolom Tentang Kami */
+        .homeblog {
+            padding: 10rem 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+        .homeblog h2 {
+            font-size: 2.5em;
+            color: var(--coklat);
+        }
+        
+        .homeblog h3 {
+            font-size: 2rem;
+            color: var(--Pink); /* Warna teks */
+            padding-top: 3px;
+        }
+        .homeblog p {
+            font-size: 1.2em;
+            color: var(--softbrown);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .img1 img{
+            max-block-size: 16rem;
+            transform:rotateZ(-20deg);
+            top: 75rem;
+            justify-content: right; 
+            right: -3rem;
+            z-index: 3;
+            position: absolute;
+        }
+
+        /* max-block-size: 25rem;
+            transform:rotateZ(-20deg);
+            top: 65rem;
+            justify-content: right; 
+            right: -5rem;
+            z-index: 3;
+            position: absolute; */
+
+
+        .img2 img{
+            top: 40.7rem;
+            left:-3.5rem ;
+            z-index: 2;
+            position: absolute;
+
+            /* top: 43.8rem;
+            left:-3.5rem ;
+            z-index: 2;
+            position: absolute; */
+        }
+
+            /* max-block-size: 13rem;
+            top: 51rem;
+            left: 0;
+            z-index: 2;
+            position: absolute; */
+        
+        .img3 img{
+            max-block-size: 29rem;
+            transform:rotateZ(13deg);
+            justify-content: left; 
+            margin-top: 23.9rem;
+            left: -5rem;
+            /* padding-right: 85%; */
+            z-index: 3;
+            position: absolute;
+        }
+
+        
+        footer {
+            background-color: var(--Pink);
+            text-align: center;
+            padding: 20px;
+        }
+        footer a {
+            font-size: 1.3rem;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer p{
+            padding: 10px 0;
+            color: var(--coklat);
+            font-size: 1rem;
+        }
+
+        /* Kolom Tentang Kami */
+        .about-us {
+            padding: 5rem 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+        .about-us h2 {
+            font-size: 2.5em;
+            color: var(--coklat);
+        }
+        .about-us p {
+            font-size: 1.2em;
+            color: var(--softbrown);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Kolom Blog */
+        .blog {
+            padding: 5rem 20px;
+            background-color: #fff2fd;
+            /* background-color: #f9f9f9; */
+            text-align: center;
+        }
+        .blog h2 {
+            font-size: 2.5em;
+            color: var(--coklat);
+        }
+        .blog p {
+            font-size: 1.2em;
+            color: var(--softbrown);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6rem;
+        }
+        .blog-post {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .blog-post h3 {
+            font-size: 1.8em;
+            color: #0C3B2E;
+        }
+        .blog-post p {
+            font-size: 1em;
+            color: var(--othercoklat);
+            line-height: 1.6rem;
+            
+        }
+
+        .Review{
+            padding: 5rem 20px;
+            background-color: #fff2fd;
+            text-align: center;
+        }
+
+        .Review h2{
+            font-size: 2.5rem;
+            color: var(--coklat);
+            text-align: center;
+
+        }
+
+        .Feedback{
+            padding: 5rem 20px;
+            background-color: #fff2fd;
+            text-align: center;
+
+        }
+
+        .Feedback h2{
+            font-size: 2.5rem;
+            color: var(--coklat);
+
+        }
+
+        .Feedback p{
+            font-size: 1.2em;
+            color: var(--softbrown);
+            max-width: 800px;
+            margin: 0 13.8rem;
+            line-height: 1.6rem;
+            text-align: justify;
+
+        }
+
+        .Feedback button{
+            font-size: 1.2rem;
+            color: white;
+            font-weight: bold;
+            background-color: var(--strngPink);
+            width: 12rem;
+            height: 3rem;
+            border-radius: 5rem;
+            border: 2px solid var(--Pink);
+            margin: 2rem 41.5%;
+        }
+
+        .slideshow-container {
+            max-width: 80%; /* Atau ukuran yang diinginkan */
+            margin: 0 auto; /* Untuk memusatkan slide show */
+        }
+        .mySlides img {
+            width: 100%;
+            height: auto; /* Mengubah dari 100vh menjadi auto */
+            max-height: 50vh; /* Atau ukuran yang diinginkan */
+            object-fit: cover;
+        }
+        .cta-button {
+            font-size: 1em;
+            padding: 8px 16px;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 2.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+
+        /* Responsif untuk layar yang lebih kecil */
+        @media screen and (max-width: 768px) {
+            .product-item {
+                width: 48%; /* 2 produk per baris pada layar kecil */
+            }
+        }
+        @media screen and (max-width: 768px) {
+            .slideshow-container {
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header style="justify-content: space-between;">
+        <img src="SugarBear.png" style="height: 80px; width: 80px; transform: scale(1,1);  margin-left: 2rem;">
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#tentang-kami">About Us</a>
+            <a href="product.html">Product</a>
+            <a href="#kontak">Contact</a>
+        </nav>
+    </header>
+
+    <!-- <a href="#home">Home</a>
+            <a href="#tentang-kami">About Us</a>
+            <a href="#produk">Product</a>
+            <a href="#blog">Blog</a>
+            <a href="#kontak">Contact</a> -->
+
+    <section id="home" class="hero">
+        <h1>Make your day more Enjoyable
+            <br>
+            with the <span>Sweetness of Dessert</span> in every moment.
+        </h1>
+        <p>Discover the full flavour and sensation of happiness for your beloved person</p>
+        <button class="cta-button" onclick="location.href='product.html'">See Our Product</button> <!-- Tombol menuju section produk -->
+    </section>
+
+    
+    <section id="homeblog" class="homeblog">
+        <h2>✨WELCOME HOME✨</h2>
+        <h3>Sweet Bears</h3>
+        <br><p>Welcome to Sugar Bear, the best place to enjoy desserts made with love! We offer a variety of premium-quality cakes, puddings, and ice creams, 
+            all preservative-free and crafted to deliver an unforgettable sweet experience. Every bite is a perfect blend of flavor and delight, ready to accompany your special moments</p>
+        <div class="img1">
+            <img src="lopu.png" alt="lopu">
+            </div>
+
+        <div class="img3">
+            <img src="cutepuding.png">
+        </div>
+    </section>
+
+    <section id="blog" class="blog">
+        <h2>Why Choose Sugarbears?</h2>
+        <!-- <p>Stay updated with the latest from the world of desserts on the Sugar Bear blog!</p>
+        <br> -->
+        <!-- <p>Here, we share our passion for creating premium treats, tips on enjoying our preservative-free delights, and behind-the-scenes stories of how we craft the perfect desserts.</p> -->
+
+        <div class="blog-post">
+
+            <p>
+                At Sugar Bear, we make sure our desserts are made with only the best, preservative-free ingredients, so you get great flavor in every bite. From cakes to puddings and ice cream, we’ve got something sweet for every craving. 
+                With our fun, cute consept and focus on quality, we’re the perfect pick for anyone who loves delicious, handmade treats.
+            </p>
+
+            <br>
+
+            <p>
+                We also pay attention to nutritional balance in each of our creations. 
+                Sugarbears products are designed to be delicious yet low in calories, so they can be enjoyed guilt-free!
+                We make sure that every layer of cake, every scoop of ice cream, and every bite of pudding not only delights the palate, but also keeps you healthy and fit.
+
+            </p>
+        </div>
+
+        
+    </section>
+
+    <section id="blog" class="Review">
+        <h2>Our Customer Review</h2>
+        <br>
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="slide1.jpg" style="width:100%">
+            </div>
+            <div class="mySlides fade">
+                <img src="slide2.jpg" style="width:100%">
+            </div>
+            <div class="mySlides fade">
+                <img src="slide3.jpg" style="width:100%">
+            </div>
+        </div>
+    </section>
+       
+    <script>
+        let slideIndex = 0;
+        showSlides();
+    
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex-1].style.display = "block";
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
+        }
+    </script>
+
+    <section id="blog" class="Feedback">
+        <h2>Improve Together</h2>
+        <br>
+        <p>We at Sugarbears always want to make your sweet experience even more perfect! For that, we need your help! 💖</p>
+        <br>
+        <p>How about taking a moment to give us some feedback on the services and products you enjoy? Anything you think about—from your favorite cake, ice cream, to your favorite pudding—it will help us to continue to grow and give our best! 🍨✨</p><br>
+        <p>Click the link below and give us your sweet feedback from the heart: 💌</p>
+        <a href="https://forms.gle/GQTPWyHVVydJVwAx9"><button type="submit">This for you</button></a>
+        
+    </section>
+
+    <!-- Kolom Tentang Kami -->
+    <section id="tentang-kami" class="about-us">
+        <h2>About Us</h2><br>
+        <p>At Sugar Bear, we bring you the perfect blend of sweetness, softness, and refreshment in every scoop. 
+            Our ice cream is crafted to indulge your taste buds with a variety of flavors, ensuring there's something for everyone. 
+            From classic favorites to unique creations, Sugar Bear offers a delightful experience with every creamy bite. 
+            Discover the joy of pure, irresistible indulgence—because at Sugar Bear, 
+            we believe in making every moment sweeter.</p>
+            
+        
+
+        <div class="img2">
+            <img src="CLP.png" alt="CLP">
+            </div>
+    
+    </section>
+
+
+
+
+    <!-- Kolom Blog -->
+    
+
+    <footer id="kontak">
+        <p>Alamat: Jl. Kebun Organik No.123, Surabaya | Telp: 0821-4317-0484</p>
+        <a href="https://www.facebook.com/share/ECnJsWR94z8ymy2R/">Facebook</a> | <a href="https://www.instagram.com/sugarbear.ind?igsh=MWtwaXVid3hqaHB5ag==">Instagram</a> | <a href="https://wa.me/6282116299838">Whatsapp</a>
+        <p>&copy; 2024 HopHarvest - All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>
